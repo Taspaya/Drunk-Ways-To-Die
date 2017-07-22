@@ -72,6 +72,12 @@ public class MainMenu : MonoBehaviour
        // borrachos = null;
        borrachos = new List<string>();
     }
+    public void SalirDelJuego()
+    {
+
+        Application.Quit();
+
+    }
     public void namesWriter()
     {
         BorrachosNamesCanvas.SetActive(true);
