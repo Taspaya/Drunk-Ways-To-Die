@@ -29,7 +29,7 @@ public class Pedrapapertisores : MonoBehaviour {
         Pedra.transform.position = new Vector2(540, 960);
 
         repensarBTN.SetActive(true);
-       // GoHomeBTN.SetActive(true);
+        GoHomeBTN.SetActive(true);
     }
 
     public void PaperBTN()
@@ -40,7 +40,7 @@ public class Pedrapapertisores : MonoBehaviour {
         Paper.transform.position = new Vector2(540, 960);
 
           repensarBTN.SetActive(true);
-        // GoHomeBTN.SetActive(true);
+         GoHomeBTN.SetActive(true);
     }
     public void tisoresBTN()
     {
@@ -50,11 +50,11 @@ public class Pedrapapertisores : MonoBehaviour {
         Tisores.transform.position = new Vector2(540, 960);
 
           repensarBTN.SetActive(true);
-        // GoHomeBTN.SetActive(true);
+         GoHomeBTN.SetActive(true);
     }
 
     public void tornarJugar() {
 
-        SceneManager.LoadScene("PedraPaperTisores   ");
+        SceneManager.LoadScene("PedraPaperTisores");
     }
 }
