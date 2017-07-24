@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/PedraPaperTisores.unity
+- path: Assets/AddPlayers.unity
   isLoaded: 1
   isActive: 1

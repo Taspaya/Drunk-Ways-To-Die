@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -31,6 +32,12 @@ public class MainMenu : MonoBehaviour
     {
     }
 
+    public void startGame() {
+
+        SceneManager.LoadScene("AddPlayers");
+
+
+    }
   
     public void BorrachosBack() {
         BorrachosNamesCanvas.SetActive(false);
