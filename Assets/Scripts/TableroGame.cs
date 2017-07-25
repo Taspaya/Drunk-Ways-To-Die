@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 public class TableroGame : MonoBehaviour {
 
 
-    public Text textoCheck;
-    public AddingPlayers borrachitows;
-	// Use this for initialization
+    [SerializeField]
+    public List<Borracho> borrachos;
+
+    public Permanent Scriptpjs;
+    // Use this for initialization
 	void Start () {
-		
-        textoCheck.text = borrachitows.borrachos
+
+
+        Scriptpjs = GetComponent<Permanent>();
+        borrachos = Scriptpjs.Feels.borrachos;
 
 
     }
 	
-	// Update is called once per frame
+	// Update is called once per frame 
 	void Update () {
 		
 	}

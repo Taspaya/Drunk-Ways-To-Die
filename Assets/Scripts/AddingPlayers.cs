@@ -9,7 +9,8 @@ public class AddingPlayers : MonoBehaviour {
 
     public static AddingPlayers addingPlayers;
 
-    List<Borracho> borrachos = new List<Borracho>();            // Declarem La List, contenedora de borrachos
+    [SerializeField]
+    public List<Borracho> borrachos = new List<Borracho>();            // Declarem La List, contenedora de borrachos
 
     private Borracho borrachin = new Borracho();
     public Image imagen;
@@ -23,7 +24,7 @@ public class AddingPlayers : MonoBehaviour {
 
     // Use this for initialization
 
-    private void Awake()
+  /*  private void Awake()
     {
         if (addingPlayers == null)
         {
@@ -32,10 +33,11 @@ public class AddingPlayers : MonoBehaviour {
             Debug.Log("vengo de antes");
         }else if (addingPlayers != this)
         {
-            Debug.Log("no se lo que passa pero te mala pinta");
+            Debug.Log("no se lo que passa pero te pinta de que funciona");
             Destroy(gameObject);
         }
-        }
+
+    }*/
 
     void Start () {
         ColorPickerCanvas.SetActive(false);
@@ -83,6 +85,8 @@ public class AddingPlayers : MonoBehaviour {
     }
 
     public void goGameScene() {
+        
+
         SceneManager.LoadScene("TableroPrincipal");
     }
     public void choseColorBTN()
