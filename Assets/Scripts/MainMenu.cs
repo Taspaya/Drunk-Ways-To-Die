@@ -51,7 +51,11 @@ public class MainMenu : MonoBehaviour
     public void OptionsBackBTN() {
         SettingsCanvas.SetActive(false);
     }   // SE QUEDA
-    
+
+    public void ChoosePlayers() {
+        SceneManager.LoadScene("AddPlayers");
+
+    }
     public void SalirDelJuego()
     {
         Application.Quit();

@@ -2,23 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class AddingPlayers : MonoBehaviour {
 
+    public static AddingPlayers addingPlayers;
+
     List<Borracho> borrachos = new List<Borracho>();            // Declarem La List, contenedora de borrachos
 
-    public Borracho borrachin;
+    private Borracho borrachin = new Borracho();
     public Image imagen;
-    public Color colorin;
+    private Color colorin;
+    public Image imagensita;
 
+    private int namesWriterCounter;
     public GameObject ColorPickerCanvas;
     public Text PlayersNames;
     public Text PlayerName;
 
     // Use this for initialization
+
+    private void Awake()
+    {
+        if (addingPlayers == null)
+        {
+            addingPlayers = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("vengo de antes");
+        }else if (addingPlayers != this)
+        {
+            Debug.Log("no se lo que passa pero te mala pinta");
+            Destroy(gameObject);
+        }
+        }
+
     void Start () {
         ColorPickerCanvas.SetActive(false);
+        borrachos.Add(borrachin);
     }
 	
 	// Update is called once per frame
@@ -28,39 +49,42 @@ public class AddingPlayers : MonoBehaviour {
 
     public void RealAddPlayer()
     {
-
-
-
-       borrachin.nombreBorracho = PlayerName.text.ToString();                  // guardamos el texto en la variable name
+        Borracho borrachin = new Borracho();
+        borrachin.nombreBorracho = PlayerName.text.ToString();                  // guardamos el texto en la variable name
 
         if (borrachin.nombreBorracho != "")
         {
-            borrachos.Add(borrachin);                                // insertamos el name en la List
-            Debug.Log("Afegit: " + name);                       // comprovamos que se ha añadido
-           
+            borrachin.nombreBorracho = PlayerName.text.ToString();                  // guardamos el texto en la variable name
+            borrachin.ColorBorracho = imagensita.color;
+            borrachos.Add(borrachin);                                               // insertamos el name en la List
+            Debug.Log("Afegit: " + PlayerName.text.ToString());                                           // comprovamos que se ha añadido
+            namesWriterCounter++;
         }
         namesWriter();
+
+        PlayersNames.color = borrachos[namesWriterCounter].ColorBorracho;
+
+       // borrachin.ColorBorracho = new Color(borrachin.Red, borrachin.Green, borrachin.Blue, 100);
     }
 
     public void BorrarBorrachos()
     {
-        //borrachos = null;
         borrachos = new List<Borracho>();
+        borrachos.Add(borrachin);
+        namesWriterCounter = 0;
+        PlayersNames.text = null;
         namesWriter();
     }
 
     public void namesWriter()
     {
-      //  BorrachosNamesCanvas.SetActive(true);
+        PlayersNames.text = PlayersNames.text.ToString() + "\n" + borrachos[namesWriterCounter].nombreBorracho;           // Añades el siguiente                
 
-        PlayersNames.text = null;                                     // reseteas el texto, para que no se acumule
-        for (int i = 0; i < borrachos.Count; i++)                     // recorres el size de la list
-        {
-            name = PlayersNames.text.ToString();                      // acumulas lo que havia en el texto
-            PlayersNames.text =  borrachos[i] + "\n"+ name;           // Añades el siguiente           
-        }
     }
 
+    public void goGameScene() {
+        SceneManager.LoadScene("TableroPrincipal");
+    }
     public void choseColorBTN()
     {
         ColorPickerCanvas.SetActive(true);
@@ -68,9 +92,19 @@ public class AddingPlayers : MonoBehaviour {
 
     public void chooseColor()
     {
-        
-        // colorin = imagen.GetPixelAdjustedRect(); ARREGLAR AIXO 
+
+        /* borrachin.Red = imagen.color.r;
+         borrachin.Green = imagen.color.g;
+         borrachin.Blue = imagen.color.b;*/
+
+        borrachin.ColorBorracho = new Color(imagen.color.r, imagen.color.g, imagen.color.b, 100);
         ColorPickerCanvas.SetActive(false);
+
+        imagensita.color = borrachin.ColorBorracho; 
     }
 
+    public void goToMainScene() {
+
+        SceneManager.LoadScene("MainScene");
+    }
 }
