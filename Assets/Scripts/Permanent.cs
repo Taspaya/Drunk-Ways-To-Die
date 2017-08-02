@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Permanent : MonoBehaviour {
 
     public AddingPlayers Feels;
 
     public Permanent permanent;
-    public List<Borracho> Jugadors;
+
+    private List<Borracho> Jugadors = new List<Borracho>();
     // Use this for initialization
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class Permanent : MonoBehaviour {
 
     public void GOGOGO()
     {
-        Jugadors = Feels.borrachos;
+       // Jugadors = Feels.borrachos;
+
+        SceneManager.LoadScene("TableroPrincipal");
     }
 }

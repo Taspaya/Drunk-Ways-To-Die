@@ -76,11 +76,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AddingPlayers.cs" />
+    <Compile Include="Assets\Scripts\Allgames.cs" />
     <Compile Include="Assets\Scripts\Borracho.cs" />
+    <Compile Include="Assets\Scripts\JocsPerLliure.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Pedrapapertisores.cs" />
     <Compile Include="Assets\Scripts\Permanent.cs" />
     <Compile Include="Assets\Scripts\TableroGame.cs" />
+    <Compile Include="Assets\Scripts\adivinalapalabra.cs" />
+    <Compile Include="Assets\Scripts\glassjob.cs" />
     <Compile Include="Assets\cui_color_picker-master\Assets\CUIColorPicker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

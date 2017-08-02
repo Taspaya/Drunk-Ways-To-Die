@@ -9,12 +9,13 @@ public class Pedrapapertisores : MonoBehaviour {
     public GameObject Paper;
     public GameObject Tisores;
 
+    public GameObject infoBTN;
     public GameObject repensarBTN;
     public GameObject GoHomeBTN;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        infoBTN.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -56,5 +57,21 @@ public class Pedrapapertisores : MonoBehaviour {
     public void tornarJugar() {
 
         SceneManager.LoadScene("PedraPaperTisores");
+        infoBTN.SetActive(false);
+    }
+
+    public void infoBUTN() {
+
+        infoBTN.SetActive(true);
+
+    }
+
+    public void backBTN()
+    {
+        infoBTN.SetActive(false);
+    }
+    public void toAllGames() {
+        
+        SceneManager.LoadScene("AllGamesScene");
     }
 }

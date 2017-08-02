@@ -10,21 +10,22 @@ public class TableroGame : MonoBehaviour {
     [SerializeField]
     public List<Borracho> borrachos;
 
-    public Permanent Scriptpjs;
+    public AddingPlayers Scriptpjs;
     // Use this for initialization
 	void Start () {
 
 
-        Scriptpjs = GetComponent<Permanent>();
-        borrachos = Scriptpjs.Feels.borrachos;
-
+        Scriptpjs = GetComponent<AddingPlayers>();
+        //borrachos = Scriptpjs.borrachos;
 
     }
 	
 	// Update is called once per frame 
 	void Update () {
-		
-	}
+
+        Scriptpjs = GetComponent<AddingPlayers>();
+       // borrachos = Scriptpjs.borrachos;
+    }
 
 
 }

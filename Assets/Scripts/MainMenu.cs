@@ -56,6 +56,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("AddPlayers");
 
     }
+
+    public void toAllGames()
+    {
+
+        SceneManager.LoadScene("JocsPerLliure");
+    } 
     public void SalirDelJuego()
     {
         Application.Quit();
