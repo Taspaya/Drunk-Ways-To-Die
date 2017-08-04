@@ -101,7 +101,7 @@ public class adivinalapalabra : MonoBehaviour {
 
         if (P2 == P1)
         {
-            P2 = ((P2 + 1) % nPlayers) + 1;
+            P2 = ((P2 + 1) % nPlayers + 1);
         }
         puraiers.text = "Siguientes: j" + P1 + " v/s " + "j" + P2;
     }
