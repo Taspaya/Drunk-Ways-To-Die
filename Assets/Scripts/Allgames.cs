@@ -25,4 +25,11 @@ public class Allgames : MonoBehaviour {
 
         SceneManager.LoadScene("AdivinaLaPalabra");
     }
+
+    public void chargeRandomGame()
+    {
+
+        SceneManager.LoadScene(Random.Range(4,7));
+
+    }
 }

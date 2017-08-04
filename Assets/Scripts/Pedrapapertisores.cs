@@ -129,17 +129,17 @@ public class Pedrapapertisores : MonoBehaviour {
         }
         else if(p1 == 1 && p2 == 2)
         {
-            winText.text = "P1" ;
+            winText.text = "Ha ganado.. \n\nP1!!" ;
             Debug.Log("GANA P1");  //            P1
         }
         else if(p1 == 1 && p2 == 3)
         {
-            winText.text = "P2";
+            winText.text = "Ha ganado.. \n\nP2!!";
             Debug.Log("GANA P2"); //            P2
         }
         else if (p1 == 2 && p2 == 1)
         {
-            winText.text = "P2"; //        P2
+            winText.text = "Ha ganado.. \n\nP2!!"; //        P2
             Debug.Log("GANA P2");
         }
         else if (p1 == 2 && p2 == 2)
@@ -149,17 +149,17 @@ public class Pedrapapertisores : MonoBehaviour {
         }
         else if (p1 == 2 && p2 == 3)
         {
-            winText.text = "P1";//        P1
+            winText.text = "Ha ganado.. \n\nP1!!";//        P1
             Debug.Log("GANA P1");
         }
         else if (p1 == 3 && p2 == 1)
         {
-            winText.text = "P1";//        P1      
+            winText.text = "Ha ganado.. \n\nP1!!";//        P1      
             Debug.Log("GANA P1");
         }
         else if (p1 == 3 && p2 == 2)
         {
-           winText.text = "P2";
+           winText.text = "Ha ganado.. \n\nP2!!";
             Debug.Log("GANA P2");//         P2
         }
         else if (p1 == 3 && p2 == 3)
