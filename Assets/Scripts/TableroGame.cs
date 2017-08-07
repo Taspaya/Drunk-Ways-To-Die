@@ -6,26 +6,79 @@ using UnityEngine.UI;
 
 public class TableroGame : MonoBehaviour {
 
+    private int nDado;
 
     [SerializeField]
-    public List<Borracho> borrachos;
+    public AddingPlayers ScriptVell;
+    public Text TurnoPlayerText;
 
-    public AddingPlayers Scriptpjs;
+    private int turno;
+    private int AlreadyPlayers;
     // Use this for initialization
-	void Start () {
+    public static List<Borracho> jugadores = new List<Borracho>();
+    private List<string> PlayerNames = new List<string>();
+    
+    void Start () {
 
+        
+        turno = 0;
 
-        Scriptpjs = GetComponent<AddingPlayers>();
-        //borrachos = Scriptpjs.borrachos;
+        
 
     }
 	
-	// Update is called once per frame 
+	
 	void Update () {
 
-        Scriptpjs = GetComponent<AddingPlayers>();
-       // borrachos = Scriptpjs.borrachos;
-    }
+       // Debug.Log("Comprovant Turno");
+        if(turno == 0)
+        {
+            TurnoPlayerText.text = PlayerPrefs.GetString("Player1");
+            turno = turno % PlayerPrefs.GetInt("nPlayers");
+        }
+        else if(turno == 1)
+        {
+            TurnoPlayerText.text = PlayerPrefs.GetString("Player2");
+            turno = turno % PlayerPrefs.GetInt("nPlayers");
+        }
+        else if (turno == 2)
+        {
+            TurnoPlayerText.text =  PlayerPrefs.GetString("Player3");
+            turno = turno % PlayerPrefs.GetInt("nPlayers");
+        }
+        else if (turno == 3)
+        {
+            TurnoPlayerText.text =  PlayerPrefs.GetString("Player4");
+            turno = turno % PlayerPrefs.GetInt("nPlayers");
+        }
+        else if (turno == 4)
+        {
+            TurnoPlayerText.text = PlayerPrefs.GetString("Player5");
+            turno = turno % PlayerPrefs.GetInt("nPlayers");
+        }
+        else if (turno == 5)
+        {
+            TurnoPlayerText.text = PlayerPrefs.GetString("Player6");
+            turno = turno % PlayerPrefs.GetInt("nPlayers");
+        }
 
+       
+
+    }
+        
+    public void dado()
+    {
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 }

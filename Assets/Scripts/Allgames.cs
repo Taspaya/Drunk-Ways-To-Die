@@ -25,7 +25,13 @@ public class Allgames : MonoBehaviour {
 
         SceneManager.LoadScene("AdivinaLaPalabra");
     }
+    public void toGlassJob()
+    {
 
+        SceneManager.LoadScene("glassjob");
+
+
+    } 
     public void chargeRandomGame()
     {
 

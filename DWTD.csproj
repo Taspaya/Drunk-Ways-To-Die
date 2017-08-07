@@ -80,6 +80,12 @@
     <Compile Include="Assets\Scripts\Borracho.cs" />
     <Compile Include="Assets\Scripts\JocsPerLliure.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\New Folder\P1.cs" />
+    <Compile Include="Assets\Scripts\New Folder\P2.cs" />
+    <Compile Include="Assets\Scripts\New Folder\P3.cs" />
+    <Compile Include="Assets\Scripts\New Folder\P4.cs" />
+    <Compile Include="Assets\Scripts\New Folder\P5.cs" />
+    <Compile Include="Assets\Scripts\New Folder\P6.cs" />
     <Compile Include="Assets\Scripts\Pedrapapertisores.cs" />
     <Compile Include="Assets\Scripts\Permanent.cs" />
     <Compile Include="Assets\Scripts\TableroGame.cs" />

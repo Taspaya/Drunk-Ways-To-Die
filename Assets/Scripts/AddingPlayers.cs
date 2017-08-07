@@ -10,18 +10,20 @@ public class AddingPlayers : MonoBehaviour {
     public static AddingPlayers addingPlayers;
 
     [SerializeField]
-    public static List<Borracho> borrachos = new List<Borracho>();            // Declarem La List, contenedora de borrachos
+    public List<Borracho> borrachos = new List<Borracho>();            // Declarem La List, contenedora de borrachos
 
-    private Borracho borrachin = new Borracho();
+    //private Borracho borrachin = new Borracho();
 
+    public GameObject choosePlayer;
+    public GameObject iniciJoc;
 
-    public Image imagen;
-    private Color colorin;
-    public Image imagensita;
+    public SpriteRenderer Player;
+    public Image BTNresult;
+    public Image RResulTT;
 
-    private int namesWriterCounter;
+    public GameObject warmText;
+    public Text warmTextText;
     public GameObject ColorPickerCanvas;
-    public Text PlayersNames;
     public Text PlayerName;
 
     // Use this for initialization
@@ -42,78 +44,133 @@ public class AddingPlayers : MonoBehaviour {
     }
 
     void Start () {
-        ColorPickerCanvas.SetActive(false);
-        borrachos.Add(borrachin);
+
+        if (PlayerPrefs.GetInt("Playing") == 1) // ======================= FIRST TIME ======================
+        {
+            ColorPickerCanvas.SetActive(false);
+            iniciJoc.SetActive(false);
+            choosePlayer.SetActive(true);
+        }
+        else if(PlayerPrefs.GetInt("Playing") == 3)  // ================== PLAYING ======================
+        {
+            choosePlayer.SetActive(false);
+            iniciJoc.SetActive(true);
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        BTNresult.color = RResulTT.color;
+        //Player.color = BTNresult.color;
+    }
 
     public void RealAddPlayer()
     {
         Borracho borrachin = new Borracho();
         borrachin.nombreBorracho = PlayerName.text.ToString();                  // guardamos el texto en la variable name
 
-        if (borrachin.nombreBorracho != "")
+
+        if (borrachos.Count == 6)
+        {
+            warmText.SetActive(true);
+        }
+
+        if (borrachin.nombreBorracho != "" && borrachos.Count < 6)
         {
             borrachin.nombreBorracho = PlayerName.text.ToString();                  // guardamos el texto en la variable name
-            borrachin.ColorBorracho = imagensita.color;
+            borrachin.ColorBorracho = RResulTT.color;
+            Player.color = BTNresult.color;
             borrachos.Add(borrachin);                                               // insertamos el name en la List
-            Debug.Log("Afegit: " + PlayerName.text.ToString());                                           // comprovamos que se ha añadido
-            namesWriterCounter++;
+            Debug.Log("Afegit: " + PlayerName.text.ToString());                    // comprovamos que se ha añadido
+            warmText.SetActive(false);
         }
-        namesWriter();
+    
+       
 
-        PlayersNames.color = borrachos[namesWriterCounter].ColorBorracho;
-
-       // borrachin.ColorBorracho = new Color(borrachin.Red, borrachin.Green, borrachin.Blue, 100);
+    
     }
 
     public void BorrarBorrachos()
     {
         borrachos = new List<Borracho>();
-        borrachos.Add(borrachin);
-        namesWriterCounter = 0;
-        PlayersNames.text = null;
-        namesWriter();
+        warmText.SetActive(false);
+     
     }
 
-    public void namesWriter()
-    {
-        PlayersNames.text = PlayersNames.text.ToString() + "\n" + borrachos[namesWriterCounter].nombreBorracho;           // Añades el siguiente                
-
-    }
+    
 
     public void choseColorBTN()
     {
-        ColorPickerCanvas.SetActive(true);
+        ColorPickerCanvas.SetActive(true);     
+    }
+
+    public void chooseColor()
+    {
+       // RResulTT.color = result;
+
+        ColorPickerCanvas.SetActive(false);
+
     }
 
     public void GOGOGOGOGOGOG()
     {
 
-        SceneManager.LoadScene("TableroPrincipal");
-
-        Debug.Log(borrachos[1].nombreBorracho);
-        Debug.Log(borrachos[2].nombreBorracho);
-        Debug.Log(borrachos[3].nombreBorracho);
+      
+        if(borrachos.Count == 0)
+        {
+            warmText.SetActive(true);
+            warmTextText.text = "Necessitas gente para jugar!!";
+        }
+        else if (borrachos.Count == 1) {
+            PlayerPrefs.SetString("Player1", borrachos[0].nombreBorracho);
+            PlayerPrefs.SetInt("nPlayers", borrachos.Count);
+        }
+        else if (borrachos.Count == 2)
+        {
+            PlayerPrefs.SetString("Player1", borrachos[0].nombreBorracho);
+            PlayerPrefs.SetString("Player2", borrachos[1].nombreBorracho);
+            PlayerPrefs.SetInt("nPlayers", borrachos.Count);
+        }
+        else if (borrachos.Count == 3)
+        {
+            PlayerPrefs.SetString("Player1", borrachos[0].nombreBorracho);
+            PlayerPrefs.SetString("Player2", borrachos[1].nombreBorracho);
+            PlayerPrefs.SetString("Player3", borrachos[2].nombreBorracho);
+            PlayerPrefs.SetInt("nPlayers", borrachos.Count);
+        }
+        else if (borrachos.Count == 4)
+        {
+            PlayerPrefs.SetString("Player1", borrachos[0].nombreBorracho);
+            PlayerPrefs.SetString("Player2", borrachos[1].nombreBorracho);
+            PlayerPrefs.SetString("Player3", borrachos[2].nombreBorracho);
+            PlayerPrefs.SetString("Player4", borrachos[3].nombreBorracho);
+            PlayerPrefs.SetInt("nPlayers", borrachos.Count);
+        }
+        else if (borrachos.Count == 5)
+        {
+            PlayerPrefs.SetString("Player1", borrachos[0].nombreBorracho);
+            PlayerPrefs.SetString("Player2", borrachos[1].nombreBorracho);
+            PlayerPrefs.SetString("Player3", borrachos[2].nombreBorracho);
+            PlayerPrefs.SetString("Player4", borrachos[3].nombreBorracho);
+            PlayerPrefs.SetString("Player5", borrachos[4].nombreBorracho);
+            PlayerPrefs.SetInt("nPlayers", borrachos.Count);
+        }
+        else if (borrachos.Count == 6)
+        {
+            PlayerPrefs.SetString("Player1", borrachos[0].nombreBorracho);
+            PlayerPrefs.SetString("Player2", borrachos[1].nombreBorracho);
+            PlayerPrefs.SetString("Player3", borrachos[2].nombreBorracho);
+            PlayerPrefs.SetString("Player4", borrachos[3].nombreBorracho);
+            PlayerPrefs.SetString("Player5", borrachos[4].nombreBorracho);
+            PlayerPrefs.SetString("Player6", borrachos[5].nombreBorracho);
+            PlayerPrefs.SetInt("nPlayers", borrachos.Count);
+        }
+        choosePlayer.SetActive(false);
+        iniciJoc.SetActive(true);
     }
 
 
-    public void chooseColor()
-    {
-
-        /* borrachin.Red = imagen.color.r;
-         borrachin.Green = imagen.color.g;
-         borrachin.Blue = imagen.color.b;*/
-
-        borrachin.ColorBorracho = new Color(imagen.color.r, imagen.color.g, imagen.color.b, 100);
-        ColorPickerCanvas.SetActive(false);
-
-        imagensita.color = borrachin.ColorBorracho; 
-    }
+    
 
     public void goToMainScene() {
 
